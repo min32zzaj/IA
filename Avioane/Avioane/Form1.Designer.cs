@@ -765,6 +765,7 @@
             this.cb_orientation.Name = "cb_orientation";
             this.cb_orientation.Size = new System.Drawing.Size(121, 28);
             this.cb_orientation.TabIndex = 72;
+            this.cb_orientation.Text = "up";
             // 
             // bt_reset
             // 

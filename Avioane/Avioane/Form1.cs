@@ -70,6 +70,7 @@ namespace Avioane
                 for (int col = 0; col < Grid.GridSize; col++)
                 {
                     game.HumanPlayer.PlayerGrid.Cells[row, col] = 0;
+                    game.ComputerPlayer.PlayerGrid.Cells[row, col] = 0;
                 }
             }
         }
@@ -131,7 +132,7 @@ namespace Avioane
 
             string orientation = cb_orientation.SelectedItem.ToString();
 
-            MessageBox.Show($"col = {col}, row={row}, orientation={orientation}");
+            //MessageBox.Show($"col = {col}, row={row}, orientation={orientation}");
 
             var airplane = new Airplane
             {
@@ -148,7 +149,7 @@ namespace Avioane
 
             if (game.HumanPlayer.AddAirplane(airplane))
             {
-                MessageBox.Show("Avion plasat cu succes!");
+                //MessageBox.Show("Avion plasat cu succes!");
                 planes++;
                 UpdateGridDisplay();
             }
@@ -171,20 +172,20 @@ namespace Avioane
             if (game.ComputerPlayer.PlayerGrid.Cells[row, col] == 1)
             {
                 button.BackColor = Color.Blue;
-                MessageBox.Show("Hit!");
+                //MessageBox.Show("Hit!");
             }
             else if (game.ComputerPlayer.PlayerGrid.Cells[row, col] == 2)
             {
                 button.BackColor = Color.Green;
                 HeadShot(row, col, game.ComputerPlayer);
                 game.HumanPlayer.score++;
-                MessageBox.Show("Head Shot!");
+                //MessageBox.Show("Head Shot!");
                 
             }
             else
             {
                 button.BackColor = Color.Gray;
-                MessageBox.Show("Miss!");
+                //MessageBox.Show("Miss!");
             }
             button.Enabled = false;
 
@@ -227,19 +228,19 @@ namespace Avioane
 
             if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 1)
             {
-                MessageBox.Show("Computer hit your plane!");
+                //MessageBox.Show("Computer hit your plane!");
                 game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
             }
             else if(game.HumanPlayer.PlayerGrid.Cells[row, col] == 2)
             {
-                MessageBox.Show("Computer took down your plane!");
+                //.Show("Computer took down your plane!");
                 game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
                 HeadShot(row, col, game.HumanPlayer);
                 game.ComputerPlayer.score++;
             }
             else
             {
-                MessageBox.Show("Computer missed!");
+                //MessageBox.Show("Computer missed!");
                 game.HumanPlayer.PlayerGrid.Cells[row, col] = 4;
             }
 
@@ -261,16 +262,19 @@ namespace Avioane
                     button.Enabled = false;
                 }
             }
-            //bt_reset.Enabled = true;
+            bt_reset.Enabled = true;
         }
 
         private void bt_reset_Click(object sender, EventArgs e)
         {
             ResetPlayerGrid();
+            PlaceComputerPlanes();
             planes = 0;
+            game.HumanPlayer.score = 0;
+            game.ComputerPlayer.score = 0;
             foreach (var control in this.Controls)
             {
-                if (control is Button button && button.Name.Contains("_p"))
+                if (control is Button button)
                 {
                     button.Enabled = true;
                     button.BackColor = SystemColors.Control;
