@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|c:\\users\\guzgan\\facultate\\anul iv\\semestrul 1\\ia\\proiect\\avioane\\avioane\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|solutionrelative:avioane\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|c:\\users\\guzgan\\facultate\\anul iv\\semestrul 1\\ia\\proiect\\avioane\\avioane\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|solutionrelative:avioane\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|c:\\users\\guzgan\\facultate\\anul iv\\semestrul 1\\ia\\proiect\\avioane\\avioane\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|solutionrelative:avioane\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|c:\\users\\guzgan\\facultate\\anul iv\\semestrul 1\\ia\\proiect\\avioane\\avioane\\airplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|solutionrelative:avioane\\airplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|c:\\users\\guzgan\\facultate\\anul iv\\semestrul 1\\ia\\proiect\\avioane\\avioane\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|solutionrelative:avioane\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|c:\\users\\guzgan\\facultate\\anul iv\\semestrul 1\\ia\\proiect\\avioane\\avioane\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|solutionrelative:avioane\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|c:\\users\\guzgan\\facultate\\anul iv\\semestrul 1\\ia\\proiect\\avioane\\avioane\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8D44922-B8EF-48AB-9AC5-BC6640A241BE}|Avioane\\Avioane.csproj|solutionrelative:avioane\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 245,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Game.cs",
+              "RelativeDocumentMoniker": "Avioane\\Game.cs",
+              "ToolTip": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Game.cs",
+              "RelativeToolTip": "Avioane\\Game.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswAsAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T13:06:28.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Player.cs",
+              "RelativeDocumentMoniker": "Avioane\\Player.cs",
+              "ToolTip": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Player.cs",
+              "RelativeToolTip": "Avioane\\Player.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T13:05:48.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Airplane.cs",
+              "DocumentMoniker": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Airplane.cs",
+              "RelativeDocumentMoniker": "Avioane\\Airplane.cs",
+              "ToolTip": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Airplane.cs",
+              "RelativeToolTip": "Avioane\\Airplane.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAkwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T12:39:53.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Grid.cs",
+              "DocumentMoniker": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Grid.cs",
+              "RelativeDocumentMoniker": "Avioane\\Grid.cs",
+              "ToolTip": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Grid.cs",
+              "RelativeToolTip": "Avioane\\Grid.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAgwCgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T12:38:41.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Form1.cs",
+              "RelativeDocumentMoniker": "Avioane\\Form1.cs",
+              "ToolTip": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Form1.cs [Design]",
+              "RelativeToolTip": "Avioane\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T11:27:16.848Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Program.cs",
+              "RelativeDocumentMoniker": "Avioane\\Program.cs",
+              "ToolTip": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Program.cs",
+              "RelativeToolTip": "Avioane\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T12:10:59.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Form1.cs",
+              "RelativeDocumentMoniker": "Avioane\\Form1.cs",
+              "ToolTip": "C:\\Users\\guzgan\\Facultate\\Anul IV\\semestrul 1\\IA\\PROIECT\\Avioane\\Avioane\\Form1.cs",
+              "RelativeToolTip": "Avioane\\Form1.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAkwGEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T11:47:14.751Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 234,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 878,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
