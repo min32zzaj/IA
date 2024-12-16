@@ -8,3 +8,13 @@ C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Avioane\Avioane\obj\Deb
 C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Avioane\Avioane\obj\Debug\Avioane.csproj.CoreCompileInputs.cache
 C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Avioane\Avioane\obj\Debug\Avioane.exe
 C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Avioane\Avioane\obj\Debug\Avioane.pdb
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\bin\Debug\Avioane.exe.config
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\bin\Debug\Avioane.exe
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\bin\Debug\Avioane.pdb
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.csproj.AssemblyReference.cache
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.Form1.resources
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.Properties.Resources.resources
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.csproj.GenerateResource.cache
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.csproj.CoreCompileInputs.cache
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.exe
+C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.pdb

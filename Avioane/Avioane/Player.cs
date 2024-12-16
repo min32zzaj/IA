@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace Avioane
 {
@@ -10,6 +11,7 @@ namespace Avioane
     {        
         public Grid PlayerGrid { get; private set; }
         public List<Airplane> Airplanes { get; private set; }
+        public int score = 0;
 
         public Player()
         {

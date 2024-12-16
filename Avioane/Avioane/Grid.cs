@@ -8,7 +8,7 @@ namespace Avioane
 {
     internal class Grid
     {
-        private const int GridSize = 6;
+        public const int GridSize = 6;
         public int[,] Cells { get; private set; }
         public Grid()
         {
