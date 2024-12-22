@@ -191,7 +191,7 @@ namespace Avioane
 
             if(game.HumanPlayer.score==3)
             {
-                MessageBox.Show("Felicitări, ai câștigat jocul!", "Victoria!");
+                MessageBox.Show("Felicitări, ai câștigat jocul!", "Victorie!");
                 EndGame();
                 return;
             }
@@ -215,7 +215,7 @@ namespace Avioane
             }
             UpdateGridDisplay();
         }
-        private void ComputerAttack()
+        /*private void ComputerAttack()
         {
             Random rand = new Random();
             int row, col;
@@ -251,7 +251,39 @@ namespace Avioane
                 MessageBox.Show("Ai pierdut jocul!", "Eșec");
                 EndGame();
             }
+        }*/
+        private void ComputerAttack()
+        {
+            MonteCarlo mcts = new MonteCarlo(game.HumanPlayer.PlayerGrid);
+            int simulations = 100; // numarul de simulari, cu cat e mai mare cu atat e mai smart calculatorul
+            (int row, int col) = mcts.GetBestMove(simulations);
+
+            if (row == -1 || col == -1) return;
+
+            if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 1)
+            {
+                game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
+            }
+            else if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 2)
+            {
+                game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
+                HeadShot(row, col, game.HumanPlayer);
+                game.ComputerPlayer.score++;
+            }
+            else
+            {
+                game.HumanPlayer.PlayerGrid.Cells[row, col] = 4;
+            }
+
+            UpdateGridDisplay();
+
+            if (game.ComputerPlayer.score == 3)
+            {
+                MessageBox.Show("Ai pierdut jocul!", "Eșec");
+                EndGame();
+            }
         }
+
 
         private void EndGame()
         {

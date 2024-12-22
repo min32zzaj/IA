@@ -18,3 +18,13 @@ C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\
 C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.csproj.CoreCompileInputs.cache
 C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.exe
 C:\Users\guzgan\Facultate\Anul IV\semestrul 1\IA\PROIECT\Git\IA\Avioane\Avioane\obj\Debug\Avioane.pdb
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\bin\Debug\Avioane.exe.config
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\bin\Debug\Avioane.exe
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\bin\Debug\Avioane.pdb
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.csproj.AssemblyReference.cache
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.Form1.resources
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.Properties.Resources.resources
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.csproj.GenerateResource.cache
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.csproj.CoreCompileInputs.cache
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.exe
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.pdb
