@@ -24,7 +24,7 @@ namespace Avioane
             var positions = airplane.GetOccupiedPositions();
             foreach (var (row, col) in positions)
             {
-                if (row < 0 || row >= GridSize || col < 0 || col >= GridSize || Cells[row, col] == 1)
+                if (row < 0 || row >= GridSize || col < 0 || col >= GridSize || Cells[row, col] == 1 || Cells[row, col] == 2)
                 {
                     return false;
                 }

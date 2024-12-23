@@ -59,6 +59,9 @@ namespace Avioane
 
             // alege mutarea cu cele mai multe simulari
             Node bestMove = root.Children.OrderByDescending(c => c.Simulations).FirstOrDefault();
+            if (bestMove == null)
+                return (-1, -1);
+
             return (bestMove.Row, bestMove.Col);
         }
 
@@ -77,45 +80,70 @@ namespace Avioane
         {
             var availableMoves = GetAvailableMoves();
             var unexploredMoves = availableMoves
-                .Where(move => !node.Children.Any(child => child.Row == move.Item1 && child.Col == move.Item2))
-                .ToList();
+                .Where(move => !node.Children.Any(child => child.Row == move.Item1 && child.Col == move.Item2)).ToList();
 
             if (unexploredMoves.Count > 0)
             {
-                var randomMove = unexploredMoves[rand.Next(unexploredMoves.Count)];
-                var newNode = new Node(randomMove.Item1, randomMove.Item2, node);
+                // daca avem lovituri, preferam mutari vecine cu loviturile
+                var bestMoves = GetMovesNearHits(unexploredMoves);
+
+                // daca bestMoves e gol, alegem mutare random din unexplored
+                var chosenMove = bestMoves.Count > 0
+                    ? bestMoves[rand.Next(bestMoves.Count)]
+                    : unexploredMoves[rand.Next(unexploredMoves.Count)];
+
+                var newNode = new Node(chosenMove.Item1, chosenMove.Item2, node);
                 node.Children.Add(newNode);
                 return newNode;
             }
 
-            return node; // toate mutarile au fost explorate
+            return node; // daca toate mutarile au fost explorate, ramanem pe nodul curent
         }
 
         // Faza 3: Simularea
         private int Simulation(Node node)
         {
+            // clonam starea grilei pt a nu strica datele reale
             var simulationGrid = (int[,])grid.Cells.Clone();
+
             var row = node.Row;
             var col = node.Col;
 
-            for (int i = 0; i < 10; i++)
+            if (row < 0 || col < 0)
+                return 0;
+
+            // incercam pana la max 10 atacuri in lant
+            int steps = 0;
+            bool foundHead = false;
+            while (steps < 10)
             {
-                if (simulationGrid[row, col] == 2)
+                steps++;
+                if (row < 0 || row >= Grid.GridSize || col < 0 || col >= Grid.GridSize)
+                    break;
+
+                // ce era pe celula inainte de atac
+                int cellValue = simulationGrid[row, col];
+
+                // cazuri
+                // 2 = cap de avion => victorie
+                // 1 = parte de avion => il marcam drept lovit (3) si incercam sa continuam atacul in vecinatate
+                // 0 = celula goala => ratat (4)
+                // 3 = deja lovit => break
+                // 4 = deja marcat ratat => break
+                if (cellValue == 2)
                 {
-                    return 1;
+                    foundHead = true;
+                    break;
                 }
-                else if (simulationGrid[row, col] == 1)
+                else if (cellValue == 1)
                 {
                     simulationGrid[row, col] = 3;
-                    var nextMove = GetRandomMove(simulationGrid);
-                    if (nextMove == (-1, -1))
-                        break;
-                    row = nextMove.Item1;
-                    col = nextMove.Item2;
+                    (row, col) = GetCloseHitNeighbor(simulationGrid, row, col);
                 }
-                else if (simulationGrid[row, col] == 0)
+                else if (cellValue == 0)
                 {
                     simulationGrid[row, col] = 4;
+                    break;
                 }
                 else
                 {
@@ -123,7 +151,8 @@ namespace Avioane
                 }
             }
 
-            return 0;
+            // daca am gasit un cap de avion, scor devine 1
+            return foundHead ? 1 : 0;
         }
 
         // Faza 4: Actualizarea (Retro-propagarea)
@@ -154,24 +183,70 @@ namespace Avioane
             return moves;
         }
 
-        // Mutare aleatorie
-        private (int, int) GetRandomMove(int[,] simulationGrid)
-        {
-            var availableMoves = new List<(int, int)>();
 
-            for (int row = 0; row < Grid.GridSize; row++)
+        // Returneaza o lista de mutari langa celulele marcate '1' (parte avion) sau '2' (cap avion)
+        private List<(int, int)> GetMovesNearHits(List<(int, int)> candidateMoves)
+        {
+            // extragem toate celulele de tip 1 sau 2
+            var hits = new List<(int, int)>();
+            for (int r = 0; r < Grid.GridSize; r++)
             {
-                for (int col = 0; col < Grid.GridSize; col++)
+                for (int c = 0; c < Grid.GridSize; c++)
                 {
-                    if (simulationGrid[row, col] != 3 && simulationGrid[row, col] != 4)
-                        availableMoves.Add((row, col));
+                    if (grid.Cells[r, c] == 1 || grid.Cells[r, c] == 2)
+                    {
+                        hits.Add((r, c));
+                    }
                 }
             }
 
-            if (availableMoves.Count == 0)
+            // daca nu exista niciun hit, nu avem ce prioritiza
+            if (hits.Count == 0)
+                return new List<(int, int)>();
+
+            // salvam toate celulele candidate care sunt (row, col) adiacente vreunui hit
+            var nearHits = new List<(int, int)>();
+            foreach (var (hr, hc) in hits)
+            {
+                var neighbors = GetNeighbors(hr, hc);
+                nearHits.AddRange(neighbors.Where(n => candidateMoves.Contains(n)));
+            }
+
+            // scoatem duplicatele
+            nearHits = nearHits.Distinct().ToList();
+
+            return nearHits;
+        }
+
+        // Returneaza toate vecinatatile unei celule (sus, jos, stanga, dreapta)
+        private List<(int, int)> GetNeighbors(int row, int col)
+        {
+            var result = new List<(int, int)>();
+            if (row - 1 >= 0) result.Add((row - 1, col));
+            if (row + 1 < Grid.GridSize) result.Add((row + 1, col));
+            if (col - 1 >= 0) result.Add((row, col - 1));
+            if (col + 1 < Grid.GridSize) result.Add((row, col + 1));
+            return result;
+        }
+
+        // Returneaza o celula nelovita sau ratata, vecina ultimei lovituri
+        private (int, int) GetCloseHitNeighbor(int[,] simulationGrid, int row, int col)
+        {
+            var neighbors = GetNeighbors(row, col);
+            // alegem un vecin care inca nu e marcat cu 3 (lovit) sau 4 (ratat)
+            var candidates = new List<(int, int)>();
+            foreach (var (r, c) in neighbors)
+            {
+                if (simulationGrid[r, c] != 3 && simulationGrid[r, c] != 4)
+                {
+                    candidates.Add((r, c));
+                }
+            }
+
+            if (candidates.Count == 0)
                 return (-1, -1);
 
-            return availableMoves[rand.Next(availableMoves.Count)];
+            return candidates[rand.Next(candidates.Count)];
         }
     }
 }
