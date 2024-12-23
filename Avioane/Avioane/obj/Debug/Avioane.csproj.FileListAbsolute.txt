@@ -28,3 +28,4 @@ E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avi
 E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.csproj.CoreCompileInputs.cache
 E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.exe
 E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.pdb
+E:\Facultate\Anul 4\Semestrul 1\IA\Proiect\IA-main\Avioane\Avioane\obj\Debug\Avioane.csproj.SuggestedBindingRedirects.cache

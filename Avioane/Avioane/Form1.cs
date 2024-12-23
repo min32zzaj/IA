@@ -40,28 +40,41 @@ namespace Avioane
 
         private void PlaceComputerPlanes()
         {
-            Airplane a1 = new Airplane
+            game.ComputerPlayer.Airplanes.Clear();
+            for (int r = 0; r < Grid.GridSize; r++)
             {
-                HeadRow = 0,
-                HeadColumn = 1,
-                Orientation = "up"
-            };
-            Airplane a2 = new Airplane
+                for (int c = 0; c < Grid.GridSize; c++)
+                {
+                    game.ComputerPlayer.PlayerGrid.Cells[r, c] = 0;
+                }
+            }
+
+            Random rand = new Random();
+            string[] orientations = { "up", "down", "left", "right" };
+
+            int planesNeeded = 3;
+            int planesPlaced = 0;
+
+            while (planesPlaced < planesNeeded)
             {
-                HeadRow = 1,
-                HeadColumn = 5,
-                Orientation = "right"
-            };
-            Airplane a3 = new Airplane
-            {
-                HeadRow = 5,
-                HeadColumn = 2,
-                Orientation = "down"
-            };
-            game.ComputerPlayer.AddAirplane(a1);
-            game.ComputerPlayer.AddAirplane(a2);
-            game.ComputerPlayer.AddAirplane(a3);
+                int row = rand.Next(0, Grid.GridSize);
+                int col = rand.Next(0, Grid.GridSize);
+                string orientation = orientations[rand.Next(orientations.Length)];
+
+                var airplane = new Airplane
+                {
+                    HeadRow = row,
+                    HeadColumn = col,
+                    Orientation = orientation
+                };
+
+                if (game.ComputerPlayer.AddAirplane(airplane))
+                {
+                    planesPlaced++;
+                }
+            }
         }
+
 
         private void ResetPlayerGrid()
         {
@@ -215,47 +228,11 @@ namespace Avioane
             }
             UpdateGridDisplay();
         }
-        /*private void ComputerAttack()
-        {
-            Random rand = new Random();
-            int row, col;
-
-            do
-            {
-                row = rand.Next(0, Grid.GridSize);
-                col = rand.Next(0, Grid.GridSize);
-            } while (game.HumanPlayer.PlayerGrid.Cells[row, col] == 4 || game.HumanPlayer.PlayerGrid.Cells[row, col] == 3);
-
-            if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 1)
-            {
-                //MessageBox.Show("Computer hit your plane!");
-                game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
-            }
-            else if(game.HumanPlayer.PlayerGrid.Cells[row, col] == 2)
-            {
-                //.Show("Computer took down your plane!");
-                game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
-                HeadShot(row, col, game.HumanPlayer);
-                game.ComputerPlayer.score++;
-            }
-            else
-            {
-                //MessageBox.Show("Computer missed!");
-                game.HumanPlayer.PlayerGrid.Cells[row, col] = 4;
-            }
-
-            UpdateGridDisplay();
-
-            if (game.ComputerPlayer.score == 3)
-            {
-                MessageBox.Show("Ai pierdut jocul!", "Eșec");
-                EndGame();
-            }
-        }*/
+       
         private void ComputerAttack()
         {
             MonteCarlo mcts = new MonteCarlo(game.HumanPlayer.PlayerGrid);
-            int simulations = 100; // numarul de simulari, cu cat e mai mare cu atat e mai smart calculatorul
+            int simulations = 1000; // numarul de simulari, cu cat e mai mare cu atat e mai smart calculatorul
             (int row, int col) = mcts.GetBestMove(simulations);
 
             if (row == -1 || col == -1) return;
