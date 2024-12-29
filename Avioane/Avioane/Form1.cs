@@ -14,11 +14,23 @@ namespace Avioane
     {
         private Game game;
         private int planes = 0;
+        // grid pentru calculator (AI), ce "stie" calculatorul despre tabla jucatorului
+        private int[,] aiGrid = new int[Grid.GridSize, Grid.GridSize];
         public Form1()
         {
             InitializeComponent();
             game = new Game();
             InitializeGameGrid();
+
+            //resetam grila AI la -1 (necunoscut)
+            for (int r = 0; r < Grid.GridSize; r++)
+            {
+                for (int c = 0; c < Grid.GridSize; c++)
+                {
+                    aiGrid[r, c] = -1;
+                }
+            }
+
             PlaceComputerPlanes();
         }
 
@@ -110,10 +122,12 @@ namespace Avioane
                     else if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 3)
                     {
                         button.BackColor = Color.Red;
+                        button.Enabled = false;
                     }
                     else if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 4)
                     {
                         button.BackColor = Color.Gray;
+                        button.Enabled = false;
                     }
                     else
                     {
@@ -128,6 +142,7 @@ namespace Avioane
                     if(game.ComputerPlayer.PlayerGrid.Cells[row, col] == 3)
                     {
                         button1.BackColor = Color.Red;
+                        button1.Enabled = false;
                     }
                 }
             }
@@ -228,27 +243,55 @@ namespace Avioane
             }
             UpdateGridDisplay();
         }
+
        
         private void ComputerAttack()
         {
-            MonteCarlo mcts = new MonteCarlo(game.HumanPlayer.PlayerGrid);
-            int simulations = 1000; // numarul de simulari, cu cat e mai mare cu atat e mai smart calculatorul
+            // MCTS pe baza aiGrid, nu a gridului real
+            MonteCarlo mcts = new MonteCarlo(aiGrid);
+            int simulations = 1000; // numarul de simulari
             (int row, int col) = mcts.GetBestMove(simulations);
 
             if (row == -1 || col == -1) return;
 
-            if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 1)
+            // verific in grila reala a jucatorului
+            int realValue = game.HumanPlayer.PlayerGrid.Cells[row, col];
+
+            // in functie de realValue, marchez in aiGrid
+            if (realValue == 1)
             {
+                // a lovit corp de avion deci in aiGrid pun 3 (hit)
+                aiGrid[row, col] = 3;
+                // in grila reala tot hit
                 game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
             }
-            else if (game.HumanPlayer.PlayerGrid.Cells[row, col] == 2)
+            else if (realValue == 2)
             {
+                aiGrid[row, col] = 3;
                 game.HumanPlayer.PlayerGrid.Cells[row, col] = 3;
+
+                // headshot in grila reala
                 HeadShot(row, col, game.HumanPlayer);
+
+                // adaugam si in aiGrid toate celulele doborate ale avionului prin headshot
+                foreach (var plane in game.HumanPlayer.Airplanes)
+                {
+                    if (plane.HeadRow == row && plane.HeadColumn == col)
+                    {
+                        var positions = plane.GetOccupiedPositions();
+                        foreach (var (posRow, posCol) in positions)
+                        {
+                            aiGrid[posRow, posCol] = 3;
+                        }
+                    }
+                }
+                // creste scorul
                 game.ComputerPlayer.score++;
             }
+
             else
             {
+                aiGrid[row, col] = 4;
                 game.HumanPlayer.PlayerGrid.Cells[row, col] = 4;
             }
 
@@ -260,6 +303,7 @@ namespace Avioane
                 EndGame();
             }
         }
+
 
 
         private void EndGame()
@@ -274,6 +318,7 @@ namespace Avioane
             bt_reset.Enabled = true;
         }
 
+      
         private void bt_reset_Click(object sender, EventArgs e)
         {
             ResetPlayerGrid();
@@ -281,6 +326,16 @@ namespace Avioane
             planes = 0;
             game.HumanPlayer.score = 0;
             game.ComputerPlayer.score = 0;
+
+            // reinitializare aiGrid
+            for (int r = 0; r < Grid.GridSize; r++)
+            {
+                for (int c = 0; c < Grid.GridSize; c++)
+                {
+                    aiGrid[r, c] = -1;
+                }
+            }
+
             foreach (var control in this.Controls)
             {
                 if (control is Button button)
@@ -290,6 +345,7 @@ namespace Avioane
                 }
             }
         }
+
 
         private void bt_start_Click(object sender, EventArgs e)
         {
@@ -747,5 +803,21 @@ namespace Avioane
             Button clickedButton = (Button)sender;
             PlacePlane(clickedButton);
         }
+
+        private void bt_help_Click(object sender, EventArgs e)
+        {
+            string helpMessage =
+                "Proiect Avioane - Inteligenta Artificiala, implementare MCTS anul 2024-2025\n" +
+                "Autori: Balan Iulia, Adam Iasmina Felicia\n\n" +
+                "Initial, player-ul va trebui sa pozitioneze pe tabla sa 3 avioane, orientate cum doreste. " +
+                "Daca doreste resetarea tablei, va apasa pe 'Reset'. " +
+                "Pentru a incepe jocul, va apasa pe butonul 'Start'.\n\n" +
+                "Scopul este sa gaseasca pe tabla Calculatorului 3 avioane (in forma de +). " +
+                "Daca nimereste capul unui avion (headshot), tot avionul se va prabusi. " +
+                "Primul jucator care doboara toate cele 3 avioane ale oponentului castiga.";
+
+            MessageBox.Show(helpMessage, "Help");
+        }
+
     }
 }
